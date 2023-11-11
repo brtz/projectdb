@@ -24,7 +24,7 @@ services:
     restart: always
     env_file: .env
     depends_on:
-      - redis
       - db
+      - redis
     ports:
       - 3000:3000
