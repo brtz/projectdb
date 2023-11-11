@@ -68,12 +68,12 @@ group :test do
 end
 
 gem 'bootstrap', '~> 4.3.1'
-gem 'simple_form'
-gem 'haml'
-gem 'haml-rails'
 gem 'devise'
 gem 'devise-jwt'
-gem 'kaminari'
+gem 'haml'
+gem 'haml-rails'
 gem 'jquery-rails'
-gem 'sass-rails'
+gem 'kaminari'
 gem 'redis-session-store'
+gem 'sass-rails'
+gem 'simple_form', '~> 5.1.0'

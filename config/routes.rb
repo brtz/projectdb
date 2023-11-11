@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :environments
   resources :projects, except: :show
 
   devise_for :users

@@ -1,0 +1,8 @@
+= simple_form_for @environment do |f|
+  .row
+    .col-md-12
+    
+      = f.input :name
+      = f.input :description
+      
+  = f.button :submit, class: 'btn btn-success'

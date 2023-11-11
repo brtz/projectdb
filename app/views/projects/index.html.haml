@@ -6,13 +6,26 @@
   %table.table.table-striped.table-hover
     %thead
       %tr
+        %th id
+        %th Shorthandle
         %th Name
+        %th Contact person
+        %th is child of
         %th
     %tbody
       - @projects.each do |project|
         %tr
           %td
+            = project.id
+          %td
+            = project.shorthandle
+          %td
             = project.name
+          %td
+            = project.contact_person
+          %td
+            - if !project.parent_id.nil?
+              = @projects.find(project.parent_id).shorthandle
           %td
             .d-flex.justify-content-end
               = link_to 'Edit', edit_project_path(project), class: 'btn btn-sm btn-outline-info mr-2'

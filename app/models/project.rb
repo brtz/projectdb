@@ -1,9 +1,11 @@
 class Project < ApplicationRecord
-    encrypts :name
-    encrypts :shorthandle
+    validates :name, uniqueness: true
+    validates :shorthandle, uniqueness: true
+
+    encrypts :name, deterministic: true, downcase: true
+    encrypts :shorthandle, deterministic: true, downcase: true
     encrypts :description
     encrypts :contact_person
 
-    validates :name, uniqueness: true
-    validates :shorthandle, uniqueness: true
+    has_many :environments, dependent: :destroy
 end
