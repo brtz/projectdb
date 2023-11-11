@@ -1,0 +1,30 @@
+services:
+  redis:
+    image: redis:7
+    restart: always
+
+  db:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_USER: pg-projectdb-app
+      POSTGRES_PASSWORD: example
+      POSTGRES_DB: projectdb_development
+    ports:
+      - 5432:5432
+
+  adminer:
+    image: adminer:4
+    restart: always
+    ports:
+      - 8080:8080
+
+  app:
+    build: ./
+    restart: always
+    env_file: .env
+    depends_on:
+      - redis
+      - db
+    ports:
+      - 3000:3000
