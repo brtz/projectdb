@@ -19,7 +19,10 @@ FROM base as build
 
 # Install packages needed to build gems
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y build-essential git libvips pkg-config
+    apt-get install --no-install-recommends -y build-essential curl git libvips libpq-dev pkg-config unzip
+
+# Install bun.sh as js runtime
+RUN curl -fsSL https://bun.sh/install | BUN_INSTALL=/usr/local bash
 
 # Install application gems
 COPY Gemfile Gemfile.lock ./
@@ -48,6 +51,9 @@ RUN apt-get update -qq && \
 # Copy built artifacts: gems, application
 COPY --from=build /usr/local/bundle /usr/local/bundle
 COPY --from=build /rails /rails
+
+# Copy bun js runtime over
+COPY --from=build /usr/local/bin/bun /usr/local/bin/bun
 
 # Run and own only the runtime files as a non-root user for security
 RUN useradd rails --create-home --shell /bin/bash && \
