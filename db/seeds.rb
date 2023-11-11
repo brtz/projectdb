@@ -9,3 +9,6 @@
 #   end
 
 initial_user = User.create(email: 'admin@app.local', password: 'narfzort', first_name: 'Admin', last_name: 'User')
+
+first_project = Project.create(name: 'Fancy Project', shorthandle: 'fprj', description: 'A project to deliver gifts to the kids', contact_person: 'Santa Claus')
+second_project = Project.create(name: 'Tune up SLH', shorthandle: 'tuslh', description: 'That deer needs some rims!', contact_person: 'Krampus', parent_id: first_project.id)

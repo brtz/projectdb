@@ -1,0 +1,11 @@
+= simple_form_for @project do |f|
+  .row
+    .col-md-12
+    
+      = f.input :name
+      = f.input :shorthandle
+      = f.input :description, as: :text
+      = f.input :contact_person
+      = f.input :parent_id
+    
+  = f.button :submit, class: 'btn btn-success'

@@ -67,7 +67,7 @@ group :test do
   gem "selenium-webdriver"
 end
 
-gem 'bootstrap'
+gem 'bootstrap', '~> 4.3.1'
 gem 'simple_form'
 gem 'haml'
 gem 'haml-rails'
