@@ -4,6 +4,11 @@ class SecretsController < ApplicationController
     # GET /secrets
     def index
       @secrets = Secret.all.page(@page)
+      respond_to do |format|
+        format.html
+        format.xml  { render xml: Secret.all }
+        format.json { render json: Secret.all }
+      end
     end
   
     # GET /secrets/new

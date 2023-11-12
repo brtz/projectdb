@@ -4,6 +4,11 @@ class EnvironmentsController < ApplicationController
   # GET /environments
   def index
     @environments = Environment.all.page(@page)
+    respond_to do |format|
+      format.html
+      format.xml  { render xml: Environment.all }
+      format.json { render json: Environment.all }
+    end
   end
 
   # GET /environments/new

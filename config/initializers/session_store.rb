@@ -1,5 +1,5 @@
 Rails.application.config.session_store :redis_session_store,
-  key: 'suchanicesessionkey',
+  key: 'projectdb_session',
   redis: {
     expire_after: 60.minutes,  # cookie expiration
     key_prefix: 'projectdb:session:',

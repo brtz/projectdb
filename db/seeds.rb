@@ -20,4 +20,5 @@ first_environment = Environment.create(name: 'North Pole', shorthandle: 'np', de
 second_environment = Environment.create(name: 'South Pole', shorthandle: 'sp', description: 'a lot of penguins here', project: first_project)
 third_environment = Environment.create(name: 'Toys r us', shorthandle: 'tru', description: 'just in case', project: second_project)
 
-naughty_list = Secret.create(name: 'naughties', content: 'Nils, Peer, Piep', environment: third_environment)
+naughty_list = Secret.create(name: 'naughties', content: 'Peer, Piep', environment: third_environment)
+behaved_list = Secret.create(name: 'behaved', content: 'Nils', environment: third_environment)

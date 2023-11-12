@@ -4,6 +4,11 @@
 ARG BUN_VERSION=1.0.11
 FROM registry.docker.com/oven/bun:$BUN_VERSION-alpine
 
+RUN apk add --no-cache \
+      curl \
+      gawk \
+      jq
+
 WORKDIR /home/bun/app/
 
 # Copy application code

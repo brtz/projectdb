@@ -4,6 +4,11 @@ class ProjectsController < ApplicationController
   # GET /projects
   def index
     @projects = Project.all.page(@page)
+    respond_to do |format|
+      format.html
+      format.xml  { render xml: Project.all }
+      format.json { render json: Project.all }
+    end
   end
 
   # GET /projects/new
