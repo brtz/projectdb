@@ -9,7 +9,7 @@
         %th id
         %th Shorthandle
         %th Name
-        %th Contact person
+        %th belongs to user
         %th is child of
         %th
     %tbody
@@ -22,7 +22,7 @@
           %td
             = project.name
           %td
-            = project.contact_person
+            = project.user.email
           %td
             - if !project.parent_id.nil?
               = @projects.find(project.parent_id).shorthandle

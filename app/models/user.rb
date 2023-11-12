@@ -6,4 +6,6 @@ class User < ApplicationRecord
 
   encrypts :first_name
   encrypts :last_name
+
+  has_many :projects
 end

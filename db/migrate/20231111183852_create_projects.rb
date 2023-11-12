@@ -5,8 +5,10 @@ class CreateProjects < ActiveRecord::Migration[7.1]
       t.string :name,              null: false, default: ""
       t.string :shorthandle, null: false, default: ""
       t.text :description, null: false, default: ""
-      t.string :contact_person, null: false, default: ""
       t.uuid :parent_id, null: true
+
+      # do not use t.belongs_to here, does not work
+      t.references :user, type: :uuid
 
       t.timestamps
     end

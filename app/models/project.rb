@@ -8,4 +8,5 @@ class Project < ApplicationRecord
     encrypts :contact_person
 
     has_many :environments, dependent: :destroy
+    belongs_to :user
 end
