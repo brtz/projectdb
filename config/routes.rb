@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :secrets
   resources :environments
   resources :projects, except: :show
 

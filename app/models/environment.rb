@@ -5,5 +5,6 @@ class Environment < ApplicationRecord
   encrypts :name, deterministic: true, downcase: true
   encrypts :shorthandle, deterministic: true, downcase: true
   
+  has_many :secrets, dependent: :destroy
   belongs_to :project
 end
