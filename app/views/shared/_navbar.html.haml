@@ -3,4 +3,4 @@
   %ul.navbar-nav.px-3.full-width
     - if user_signed_in?
       %li.nav-item.text-nowrap
-        = link_to "#{current_user.first_name} #{current_user.last_name} (#{current_user.email}) Abmelden", destroy_user_session_path, method: :delete, class: 'nav-link float-right'
+        = link_to "#{current_user.first_name} #{current_user.last_name} (#{current_user.email}) logout", destroy_user_session_path, method: :delete, class: 'nav-link float-right'
