@@ -37,7 +37,7 @@ export async function list(apiUrl:string, resource:string): Promise<string> {
     }
 }
 
-export async function find(apiUrl:string, resource:string, searchField:string, searchString:string): void {
+export async function find(apiUrl:string, resource:string, searchField:string, searchString:string): Promise<string> {
     try {
         let returnedList = JSON.parse(await list(apiUrl, resource));
         let result = [];
@@ -46,7 +46,7 @@ export async function find(apiUrl:string, resource:string, searchField:string, s
                 result.push(element);
             }
         });
-        console.log(JSON.stringify(result));
+        return JSON.stringify(result);
     } catch (error) {
         cm.log('ERROR', error.message);
         process.exit(1);

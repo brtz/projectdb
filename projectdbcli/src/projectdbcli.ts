@@ -51,10 +51,10 @@ switch (args.resource) {
     default:
         switch (args.command) {
             case 'list':
-                restresource.list(apiUrl, args.resource);
+                console.log(JSON.parse(await restresource.list(apiUrl, args.resource)));
                 break;
             case 'find':
-                restresource.find(apiUrl, args.resource, args.searchField, args.searchString);
+                console.log(JSON.parse(await restresource.find(apiUrl, args.resource, args.searchField, args.searchString)));
         }
         break;
 }
