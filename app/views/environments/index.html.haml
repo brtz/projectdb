@@ -7,6 +7,7 @@
     %thead
       %tr
         %th id
+        %th Shorthandle
         %th Name
         %th belongs to project
         %th
@@ -16,9 +17,11 @@
           %td
             = environment.id
           %td
+            = environment.shorthandle
+          %td
             = environment.name
           %td
-            
+            = link_to environment.project.shorthandle, edit_project_path(environment.project)
           %td
             .d-flex.justify-content-end
               = link_to 'Edit', edit_environment_path(environment), class: 'btn btn-sm btn-outline-info mr-2'

@@ -3,6 +3,8 @@
     .col-md-12
     
       = f.input :name
+      = f.input :shorthandle
       = f.input :description
+      = f.association :project, label_method: :shorthandle
       
   = f.button :submit, class: 'btn btn-success'
