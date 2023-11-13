@@ -1,24 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# TODO
+- block parent project to be deleted if child projects exist
+- block create project if parent project has a parent project
+- build pipeline rails+projectdbcli
+- fix forms
+- projectdbcli add resource
+- projectdbcli del resource
+- user management incl. role in user
+- update docs with screenshot and logo

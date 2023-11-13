@@ -1,0 +1,16 @@
+name: projectdbctl
+version: 1.0.0
+
+authors:
+  - Nils Bartels <gitlab@bartels.xyz>
+
+targets:
+  projectdbctl:
+    main: src/projectdbctl.cr
+license: MIT
+
+dependencies:
+  admiral:
+    github: jwaldrip/admiral.cr
+  halite:
+    github: icyleaf/halite
