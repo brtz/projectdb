@@ -36,3 +36,4 @@
 
 # Ignore some cli stuff
 /projectdbcli/node_modules/
+/projectdbctl/lib/
