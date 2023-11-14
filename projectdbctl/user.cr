@@ -4,8 +4,8 @@ require "halite"
 module ModUser
   def self.auth(api_url, api_username, api_password)
     begin
-      res = Halite.post(api_url + "/users/sign_in",
-        json: { "user" => {
+      res = Halite.post(api_url + "/api_users/sign_in",
+        json: { "api_user" => {
           "email" => api_username,
           "password" => api_password
         }},

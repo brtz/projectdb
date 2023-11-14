@@ -10,9 +10,10 @@
 
 if ENV["RAILS_ENV"] == "development"
     admin_user = User.create(email: 'admin@projectdb', password: 'narfzort', first_name: 'Admin', last_name: 'User')
-    api_user = User.create(email: 'api@projectdb', password: 'changethis', first_name: 'Api', last_name: 'User')
     santa = User.create(email: 'santa@projectdb', password: 'changethis', first_name: 'Santa', last_name: 'Claus')
     krampus = User.create(email: 'krampus@projectdb', password: 'changethis', first_name: 'Krampus', last_name: '')
+
+    api_user = ApiUser.create(email: 'api@projectdb', password: 'changethis')
 
     first_project = Project.create(name: 'Fancy Project', shorthandle: 'fprj', description: 'A project to deliver gifts to the kids', user: santa, custom_id: '1')
     second_project = Project.create(name: 'Tune up SLH', shorthandle: 'tuslh', description: 'That deer needs some rims!', user: krampus, parent_id: first_project.id, custom_id: '2')
