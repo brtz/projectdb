@@ -1,9 +1,5 @@
-require "dexter"
+require "./common"
 require "halite"
-
-backend = Log::IOBackend.new
-backend.formatter = Dexter::JSONLogFormatter.proc
-Log.dexter.configure(:info, backend)
 
 module ModUser
   def self.auth(api_url, api_username, api_password)
@@ -15,7 +11,7 @@ module ModUser
         }},
         headers: {
           "Accept" => "application/json",
-          "content-type" => "application/json"
+          "Content-Type" => "application/json"
         }
       )
 
@@ -26,10 +22,9 @@ module ModUser
       end
 
       File.write("/tmp/.projectdbctl-jwt", jwt)
-      Log.info { "Successfully authed" }
-
+      Common.log("info", "Successfully authed")
     rescue ex
-      Log.error { ex.message }
+      Common.log("error", ex.message, ex)
       exit(1)
     end
   end

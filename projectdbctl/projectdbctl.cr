@@ -1,13 +1,13 @@
 require "admiral"
-
-require "./user"
+require "./common"
 require "./resource"
+require "./user"
 
 class Projectdbctl < Admiral::Command
   define_help description: "projectdbctl"
 
   class User < Admiral::Command
-    define_help description: "User"
+    define_help description: "User related commands"
 
     class Auth < Admiral::Command
       def run
@@ -30,7 +30,30 @@ class Projectdbctl < Admiral::Command
     end
   end
 
+  class Project < Admiral::Command
+    define_help description: "Project related commands"
+
+    class List < Admiral::Command
+      def run
+        begin
+          api_url = ENV["PROJECTDBCTL_API_URL"]
+          ModResource.list("projects", api_url)
+        rescue ex
+          puts ex.message
+          exit(1)
+        end
+      end
+    end
+
+    register_sub_command(list, List)
+
+    def run
+      puts help
+    end
+  end
+
   register_sub_command(user, User)
+  register_sub_command(project, Project)
 
   def run
     puts help
