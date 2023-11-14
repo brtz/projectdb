@@ -6,7 +6,7 @@ authors:
 
 targets:
   projectdbctl:
-    main: src/projectdbctl.cr
+    main: projectdbctl.cr
 license: MIT
 
 dependencies:
@@ -14,3 +14,6 @@ dependencies:
     github: jwaldrip/admiral.cr
   halite:
     github: icyleaf/halite
+  dexter:
+    github: luckyframework/dexter
+    version: ~> 0.3

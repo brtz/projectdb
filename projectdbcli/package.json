@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "typed-rest-client": "^1.8.11",
-    "ts-command-line-args": "^2.5.1",
-    "minimatch": "^9.0.3"
-  }
-}

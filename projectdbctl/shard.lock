@@ -1,0 +1,14 @@
+version: 2.0
+shards:
+  admiral:
+    git: https://github.com/jwaldrip/admiral.cr.git
+    version: 1.12.1
+
+  dexter:
+    git: https://github.com/luckyframework/dexter.git
+    version: 0.3.4
+
+  halite:
+    git: https://github.com/icyleaf/halite.git
+    version: 0.12.1
+
