@@ -34,10 +34,12 @@ class Projectdbctl < Admiral::Command
     define_help description: "Project related commands"
 
     class List < Admiral::Command
+      define_flag filters : Array(String), description: "Filters. Can be specified multiple times. Combined by &. e.g. name:*foo*", short: f, long: filter
+
       def run
         begin
           api_url = ENV["PROJECTDBCTL_API_URL"]
-          ModResource.list("projects", api_url)
+          ModResource.list("projects", api_url, flags.filters)
         rescue ex
           puts ex.message
           exit(1)
