@@ -1,7 +1,6 @@
 # README
 
 # TODO
-- block create project if parent project has a parent project
 - build pipeline rails+projectdbcli
 - fix forms
 - projectdbcli add resource
