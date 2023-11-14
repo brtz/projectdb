@@ -42,8 +42,13 @@ class ProjectsController < ApplicationController
 
   # DELETE /projects/1
   def destroy
-    @project.destroy
-    redirect_to projects_url, notice: 'Project was successfully deleted.'
+    children = Project.find_by parent_id: @project.id
+    if children.nil?
+      @project.destroy
+      redirect_to projects_url, notice: 'Project was successfully deleted.'
+    else
+      redirect_to projects_path, alert: 'Project has child projects. Delete children first.'
+    end
   end
 
   private

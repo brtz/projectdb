@@ -1,7 +1,6 @@
 # README
 
 # TODO
-- block parent project to be deleted if child projects exist
 - block create project if parent project has a parent project
 - build pipeline rails+projectdbcli
 - fix forms
