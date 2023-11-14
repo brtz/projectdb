@@ -54,8 +54,58 @@ class Projectdbctl < Admiral::Command
     end
   end
 
+  class Environment < Admiral::Command
+    define_help description: "Environment related commands"
+
+    class List < Admiral::Command
+      define_flag filters : Array(String), description: "Filters. Can be specified multiple times. Combined by &. e.g. name:*foo*", short: f, long: filter
+
+      def run
+        begin
+          api_url = ENV["PROJECTDBCTL_API_URL"]
+          ModResource.list("environments", api_url, flags.filters)
+        rescue ex
+          puts ex.message
+          exit(1)
+        end
+      end
+    end
+
+    register_sub_command(list, List)
+
+    def run
+      puts help
+    end
+  end
+
+  class Secret < Admiral::Command
+    define_help description: "Secret related commands"
+
+    class List < Admiral::Command
+      define_flag filters : Array(String), description: "Filters. Can be specified multiple times. Combined by &. e.g. name:*foo*", short: f, long: filter
+
+      def run
+        begin
+          api_url = ENV["PROJECTDBCTL_API_URL"]
+          ModResource.list("secrets", api_url, flags.filters)
+        rescue ex
+          puts ex.message
+          exit(1)
+        end
+      end
+    end
+
+    register_sub_command(list, List)
+
+    def run
+      puts help
+    end
+  end
+
   register_sub_command(user, User)
   register_sub_command(project, Project)
+  register_sub_command(environment, Environment)
+  register_sub_command(secret, Secret)
 
   def run
     puts help

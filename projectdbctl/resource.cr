@@ -19,7 +19,7 @@ module ModResource
         else
           elements = JSON.parse(res.body)
           elements = self.filter_elements(elements, filters)
-          puts elements.to_pretty_json
+          puts elements.to_json
         end
       else
         raise "Could not list resource #{resource} from #{url} (#{res.status_code})"
