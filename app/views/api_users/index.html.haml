@@ -1,0 +1,18 @@
+%h2
+  Api Users
+.clearfix
+.table-responsive
+  %table.table.table-striped.table-hover
+    %thead
+      %tr
+        %th id
+        %th email
+    %tbody
+      - @apiusers.each do |apiuser|
+        %tr
+          %td
+            = apiuser.id
+          %td
+            = apiuser.email
+.d-flex.justify-content-center.mt-3
+  = paginate @apiusers

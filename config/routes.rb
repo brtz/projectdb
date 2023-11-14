@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :secrets, except: :show
   resources :environments, except: :show
   resources :projects, except: :show
+  resources :api_users, except: :show
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

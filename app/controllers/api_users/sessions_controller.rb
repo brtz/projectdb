@@ -11,10 +11,10 @@ class ApiUsers::SessionsController < Devise::SessionsController
   # POST /resource/sign_in
   def create
     respond_to do |format|
-      format.json {  
-        warden.authenticate!(:scope => resource_name, :recall => "#{controller_path}#new")  
-        render :status => 200, :json => { :error => "Success" }  
-      } 
+      format.json {
+        warden.authenticate!(:scope => resource_name, :recall => "#{controller_path}#new")
+        render :status => 200, :json => { :error => "Success" }
+      }
     end
   end
 
