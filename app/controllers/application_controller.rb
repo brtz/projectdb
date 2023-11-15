@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   protect_from_forgery unless: -> { request.format.json? }
   before_action :authenticate_api_user!, if: -> { request.format.json? }
@@ -5,5 +7,4 @@ class ApplicationController < ActionController::Base
 
   def index
   end
-
 end

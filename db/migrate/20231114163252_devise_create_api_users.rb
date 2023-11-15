@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class DeviseCreateApiUsers < ActiveRecord::Migration[7.1]
-  enable_extension 'pgcrypto' unless extension_enabled?('pgcrypto')
+  enable_extension "pgcrypto" unless extension_enabled?("pgcrypto")
   def change
     create_table :api_users, id: :uuid do |t|
       ## Database authenticatable
@@ -9,11 +9,11 @@ class DeviseCreateApiUsers < ActiveRecord::Migration[7.1]
       t.string :encrypted_password, null: false, default: ""
 
       ## Recoverable
-      #t.string   :reset_password_token
-      #t.datetime :reset_password_sent_at
+      # t.string   :reset_password_token
+      # t.datetime :reset_password_sent_at
 
       ## Rememberable
-      #t.datetime :remember_created_at
+      # t.datetime :remember_created_at
 
       ## Trackable
       # t.integer  :sign_in_count, default: 0, null: false

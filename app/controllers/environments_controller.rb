@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class EnvironmentsController < ApplicationController
   before_action :set_environment, only: [:edit, :update, :destroy]
 
@@ -25,7 +27,7 @@ class EnvironmentsController < ApplicationController
     @environment = Environment.new(environment_params)
 
     if @environment.save
-      redirect_to environments_path, notice: 'Environment was successfully created.'
+      redirect_to environments_path, notice: "Environment was successfully created."
     else
       render :new
     end
@@ -34,7 +36,7 @@ class EnvironmentsController < ApplicationController
   # PATCH/PUT /environments/1
   def update
     if @environment.update(environment_params)
-      redirect_to environments_path, notice: 'Environment was successfully updated.'
+      redirect_to environments_path, notice: "Environment was successfully updated."
     else
       render :edit
     end
@@ -43,7 +45,7 @@ class EnvironmentsController < ApplicationController
   # DELETE /environments/1
   def destroy
     @environment.destroy
-    redirect_to environments_url, notice: 'Environment was successfully deleted.'
+    redirect_to environments_url, notice: "Environment was successfully deleted."
   end
 
   private

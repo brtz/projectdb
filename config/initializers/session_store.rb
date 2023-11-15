@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 Rails.application.config.session_store :redis_session_store,
-  key: 'projectdb_session',
+  key: "projectdb_session",
   redis: {
     expire_after: 60.minutes,  # cookie expiration
-    key_prefix: 'projectdb:session:',
-    url: ENV['PROJECTDB_REDIS_URL'],
+    key_prefix: "projectdb:session:",
+    url: ENV["PROJECTDB_REDIS_URL"],
   }

@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
-  devise_for :users, controllers: { sessions: 'users/sessions' }
-  devise_for :api_users, controllers: { sessions: 'api_users/sessions' }
+  devise_for :users, controllers: { sessions: "users/sessions" }
+  devise_for :api_users, controllers: { sessions: "api_users/sessions" }
 
   resources :secrets, except: :show
   resources :environments, except: :show

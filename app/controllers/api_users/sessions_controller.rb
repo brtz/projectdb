@@ -4,16 +4,16 @@ class ApiUsers::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
-  #def new
+  # def new
   #   super
-  #end
+  # end
 
   # POST /resource/sign_in
   def create
     respond_to do |format|
       format.json {
-        warden.authenticate!(:scope => resource_name, :recall => "#{controller_path}#new")
-        render :status => 200, :json => { :error => "Success" }
+        warden.authenticate!(scope: resource_name, recall: "#{controller_path}#new")
+        render status: 200, json: { error: "Success" }
       }
     end
   end

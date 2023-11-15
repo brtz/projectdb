@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class CreateProjects < ActiveRecord::Migration[7.1]
-  enable_extension 'pgcrypto' unless extension_enabled?('pgcrypto')
+  enable_extension "pgcrypto" unless extension_enabled?("pgcrypto")
   def change
     create_table :projects, id: :uuid do |t|
       t.string :name,              null: false, default: ""

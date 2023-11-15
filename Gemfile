@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source "https://rubygems.org"
 
 ruby "3.2.2"
@@ -9,8 +11,8 @@ gem "rails", "~> 7.1.2"
 gem "sprockets-rails"
 
 # Use sqlite3 as the database for Active Record
-#gem "sqlite3", "~> 1.4"
-gem 'pg'
+# gem "sqlite3", "~> 1.4"
+gem "pg"
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
@@ -67,18 +69,18 @@ group :test do
   gem "selenium-webdriver"
 end
 
-gem 'bootstrap', '~> 4.3.1'
-gem 'brakeman'
-gem 'bundler-audit'
-gem 'devise'
-gem 'devise-jwt'
-gem 'haml'
-gem 'haml-rails'
-gem 'jquery-rails'
-gem 'kaminari'
-gem 'redis-session-store'
-gem 'rubocop', require: false
-gem 'rubocop-rails', require: false
-gem 'rubocop-rails_config'
-gem 'sass-rails'
-gem 'simple_form', '~> 5.1.0'
+gem "bootstrap", "~> 4.3.1"
+gem "brakeman"
+gem "bundler-audit"
+gem "devise"
+gem "devise-jwt"
+gem "haml"
+gem "haml-rails"
+gem "jquery-rails"
+gem "kaminari"
+gem "redis-session-store"
+gem "rubocop", require: false
+gem "rubocop-rails", require: false
+gem "rubocop-rails_config"
+gem "sass-rails"
+gem "simple_form", "~> 5.1.0"

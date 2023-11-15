@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApiUser < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -7,7 +9,7 @@ class ApiUser < ApplicationRecord
 
   def jwt_payload
     {
-      'email' => email
+      "email" => email
     }
   end
 end
