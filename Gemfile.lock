@@ -177,7 +177,7 @@ GEM
       kaminari-core (= 1.2.2)
     kaminari-core (1.2.2)
     language_server-protocol (3.17.0.3)
-    loofah (2.21.4)
+    loofah (2.22.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
     mail (2.8.1)
@@ -322,7 +322,7 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
-    simple_form (5.1.0)
+    simple_form (5.3.0)
       actionpack (>= 5.2)
       activemodel (>= 5.2)
     sprockets (4.2.1)
@@ -396,7 +396,7 @@ DEPENDENCIES
   rubocop-rails_config
   sass-rails
   selenium-webdriver
-  simple_form (~> 5.1.0)
+  simple_form (~> 5.3.0)
   sprockets-rails
   stimulus-rails
   turbo-rails
