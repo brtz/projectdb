@@ -68,6 +68,8 @@ group :test do
 end
 
 gem 'bootstrap', '~> 4.3.1'
+gem 'brakeman'
+gem 'bundler-audit'
 gem 'devise'
 gem 'devise-jwt'
 gem 'haml'
@@ -75,5 +77,8 @@ gem 'haml-rails'
 gem 'jquery-rails'
 gem 'kaminari'
 gem 'redis-session-store'
+gem 'rubocop', require: false
+gem 'rubocop-rails', require: false
+gem 'rubocop-rails_config'
 gem 'sass-rails'
 gem 'simple_form', '~> 5.1.0'
