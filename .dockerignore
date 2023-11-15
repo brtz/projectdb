@@ -37,5 +37,4 @@
 /public/assets
 
 # Ignore client
-/projectdbcli/
 /projectdbctl/
