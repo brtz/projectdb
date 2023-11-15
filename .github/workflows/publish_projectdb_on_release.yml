@@ -32,5 +32,6 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: |
+            type=raw,value='release-{{date 'YYYYMMDD-HHmmss'}}'
           labels: ${{ steps.meta.outputs.labels }}
