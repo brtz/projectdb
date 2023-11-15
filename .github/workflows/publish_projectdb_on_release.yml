@@ -22,7 +22,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Set env
-        run: echo "FLATTENED_REF_STAMP=$(git log -1 --format=%cd --date=format:%Y%m%dh%H%M%S")" >> $GITHUB_ENV
+        run: echo "FLATTENED_REF_STAMP=$(git log -1 --format=%cd --date=format:%Y%m%dh%H%M%S)" >> $GITHUB_ENV
 
       - name: Extract metadata (tags, labels) for Docker
         id: meta
