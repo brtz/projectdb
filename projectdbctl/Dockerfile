@@ -13,7 +13,7 @@ WORKDIR /app
 
 COPY . /app
 
-RUN shards build -v --production && \
+RUN shards build --verbose --production --release --static --no-debug && \
     chown -R app:app /app
 
 USER app
