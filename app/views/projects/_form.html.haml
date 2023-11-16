@@ -7,6 +7,6 @@
       = f.input :description
       = f.association :user, label_method: :email
       = f.input :parent_id, collection: Project.all, label_method: :shorthandle, value_method: :id
-      = f.input :custom_id
+      = f.input :custom_id, label: 'Custom id'
     
   = f.button :submit, class: 'btn btn-success'
