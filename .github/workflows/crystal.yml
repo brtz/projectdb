@@ -17,13 +17,13 @@ permissions:
   contents: read
 
 jobs:
-  crystal.build:
+  crystal_build:
     runs-on: ubuntu-latest
     container:
       image: crystallang/crystal:1-alpine
     steps:
-      - name: crystal.build.checkout
+      - name: crystal_build_checkout
         uses: actions/checkout@v3
-      - name: crystal.build.build
+      - name: crystal_build_build
         working-directory: ./projectdbctl
         run: shards build --verbose --production --release --static --no-debug

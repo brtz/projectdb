@@ -6,22 +6,22 @@ on:
 
 jobs:
   publish_to_dockerhub:
-    name: publish_projectdb_on_release.publish_to_dockerhub
+    name: publish_projectdb_on_release_publish_to_dockerhub
     runs-on: ubuntu-latest
     steps:
-      - name: publish_projectdb_on_release.publish_to_dockerhub.checkout
+      - name: publish_projectdb_on_release_publish_to_dockerhub_checkout
         uses: actions/checkout@v4
 
-      - name: publish_projectdb_on_release.publish_to_dockerhub.login
+      - name: publish_projectdb_on_release_publish_to_dockerhub_login
         uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: publish_projectdb_on_release.publish_to_dockerhub.setenv
+      - name: publish_projectdb_on_release_publish_to_dockerhub_setenv
         run: echo "FLATTENED_TAG=${{ vars.DOCKER_REPO }}:release-$(git log -1 --format=%cd --date=format:%Y%m%dh%H%M%S)" >> $GITHUB_ENV
 
-      - name: publish_projectdb_on_release.publish_to_dockerhub.buildandpublish
+      - name: publish_projectdb_on_release_publish_to_dockerhub_buildandpublish
         uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
         with:
           context: .

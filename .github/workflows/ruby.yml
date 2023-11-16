@@ -17,7 +17,7 @@ permissions:
   contents: read
 
 jobs:
-  ruby.build:
+  ruby_build:
     runs-on: ubuntu-latest
     services:
       postgres:
@@ -32,30 +32,30 @@ jobs:
       RAILS_ENV: test
       DATABASE_URL: "postgres://rails:password@localhost:5432/rails_test"
     steps:
-      - name: ruby.build.checkout
+      - name: ruby_build_checkout
         uses: actions/checkout@v3
-      - name: ruby.build.rubysetup
+      - name: ruby_build_rubysetup
         uses: ruby/setup-ruby@55283cc23133118229fd3f97f9336ee23a179fcf # v1.146.0
         with:
           bundler-cache: true
-      - name: ruby.build.dbsetup
+      - name: ruby_build_dbsetup
         run: bin/rails db:prepare
       # - name: Run tests
       #  run: bin/rake
 
-  ruby.lint:
+  ruby_lint:
     runs-on: ubuntu-latest
     steps:
-      - name: ruby.lint.checkout
+      - name: ruby_lint_checkout
         uses: actions/checkout@v3
-      - name: ruby.lint.rubysetup
+      - name: ruby_lint_rubysetup
         uses: ruby/setup-ruby@55283cc23133118229fd3f97f9336ee23a179fcf # v1.146.0
         with:
           bundler-cache: true
       # Add or replace any other lints here
-      - name: ruby.lint.bundleraudit
+      - name: ruby_lint_bundleraudit
         run: bundle exec bundler-audit --update
-      - name: ruby.lint.brakeman
+      - name: ruby_lint_brakeman
         run: bundle exec brakeman -q -w2
-      - name: ruby.lint.rubocop
+      - name: ruby_lint_rubocop
         run: bundle exec rubocop --require rubocop-rails --parallel
