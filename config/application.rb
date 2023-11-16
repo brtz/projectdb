@@ -8,6 +8,14 @@ require "rails/all"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+if ['development'].include? ENV["RAILS_ENV"]
+  begin
+    Dotenv::Railtie.load
+  rescue
+    puts "Failed to load .env, probably not an issue"
+  end
+end
+
 module Projectdb
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.

@@ -9,7 +9,6 @@
 ## projectdbctl
 
 # TODO
-- build pipeline rails+projectdbcli
 - projectdbcli add resource
 - projectdbcli del resource
 - user management incl. role in user

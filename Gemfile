@@ -54,6 +54,7 @@ end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
+  gem "foreman"
   gem "web-console"
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
@@ -74,6 +75,7 @@ gem "brakeman"
 gem "bundler-audit"
 gem "devise"
 gem "devise-jwt"
+gem "dotenv-rails"
 gem "haml"
 gem "haml-rails"
 gem "jquery-rails"

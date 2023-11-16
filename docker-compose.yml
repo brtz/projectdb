@@ -2,6 +2,8 @@ services:
   redis:
     image: redis:7
     restart: always
+    ports:
+      - 6379:6379
 
   db:
     image: postgres:latest
@@ -22,7 +24,7 @@ services:
   app:
     build: ./
     restart: always
-    env_file: .env
+    env_file: .env.container
     depends_on:
       - db
       - redis
