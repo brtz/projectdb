@@ -23,9 +23,8 @@ jobs:
 
       - name: publish_projectdbctl_on_release_publish_to_dockerhub_buildandpublish
         uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
-        working-directory: ./projectdbctl
         with:
-          context: .
-          file: ./Dockerfile
+          context: ./projectdbctl/
+          file: ./projectdbctl/Dockerfile
           push: true
           tags: ${{ env.FLATTENED_TAG }}
