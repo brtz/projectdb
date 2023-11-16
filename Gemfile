@@ -83,4 +83,4 @@ gem "rubocop", require: false
 gem "rubocop-rails", require: false
 gem "rubocop-rails_config"
 gem "sass-rails"
-gem "simple_form", "~> 5.1.0"
+gem "simple_form", "~> 5.3.0"
