@@ -8,7 +8,7 @@ require "rails/all"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-if ['development'].include? ENV["RAILS_ENV"]
+if ["development"].include? ENV["RAILS_ENV"]
   begin
     Dotenv::Railtie.load
   rescue
