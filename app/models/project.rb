@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class Project < ApplicationRecord
+  attribute :start_datetime, :datetime
+  attribute :end_datetime, :datetime
+
   validates :name, uniqueness: true
   validates :shorthandle, uniqueness: true
   validates :custom_id, uniqueness: true

@@ -6,22 +6,21 @@
   %table.table.table-striped.table-hover
     %thead
       %tr
-        %th id
-        %th Shorthandle
         %th Custom id
+        %th Shorthandle
         %th Name
         %th Owner
         %th Parent project
+        %th Start
+        %th End
         %th
     %tbody
       - @projects.each do |project|
         %tr
           %td
-            = project.id
+            = project.custom_id
           %td
             = project.shorthandle
-          %td
-            = project.custom_id
           %td
             = project.name
           %td
@@ -29,6 +28,10 @@
           %td
             - if !project.parent_id.nil?
               = @projects.find(project.parent_id).shorthandle
+          %td
+            = project.start_datetime
+          %td
+            = project.end_datetime
           %td
             .d-flex.justify-content-end
               = link_to 'Edit', edit_project_path(project), class: 'btn btn-sm btn-outline-info mr-2'

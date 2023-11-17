@@ -9,6 +9,8 @@ class CreateProjects < ActiveRecord::Migration[7.1]
       t.text :description, null: false, default: ""
       t.uuid :parent_id, null: true
       t.string :custom_id, null: true
+      t.datetime :start_datetime, null: true
+      t.datetime :end_datetime, null: true
 
       # do not use t.belongs_to here, does not work
       t.references :user, type: :uuid

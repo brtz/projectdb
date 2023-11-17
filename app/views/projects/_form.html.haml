@@ -1,12 +1,13 @@
 = simple_form_for @project do |f|
   .row
     .col-md-12
-    
       = f.input :name
       = f.input :shorthandle
       = f.input :description
       = f.association :user, label_method: :email
       = f.input :parent_id, collection: Project.all, label_method: :shorthandle, value_method: :id
       = f.input :custom_id, label: 'Custom id'
-    
+      = f.input :start_datetime, as: :datetime, html5: true
+      = f.input :end_datetime, as: :datetime, html5: true
+
   = f.button :submit, class: 'btn btn-success'

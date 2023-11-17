@@ -6,7 +6,6 @@
   %table.table.table-striped.table-hover
     %thead
       %tr
-        %th id
         %th Shorthandle
         %th Name
         %th belongs to project
@@ -14,8 +13,6 @@
     %tbody
       - @environments.each do |environment|
         %tr
-          %td
-            = environment.id
           %td
             = environment.shorthandle
           %td
