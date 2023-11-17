@@ -47,7 +47,25 @@ class Projectdbctl < Admiral::Command
       end
     end
 
+    class Delete < Admiral::Command
+      define_flag id : String, description: "resource's id to be deleted.", short: i, long: id, required: true
+      define_flag confirm : String, description: "need to be set to true to delete resources.", long: confirm, required: true
+
+      def run
+        begin
+          api_url = ENV["PROJECTDBCTL_API_URL"]
+          if (flags.confirm == "true")
+            ModResource.delete("projects", api_url, flags.id)
+          end
+        rescue ex
+          puts ex.message
+          exit(1)
+        end
+      end
+    end
+
     register_sub_command(list, List)
+    register_sub_command(delete, Delete)
 
     def run
       puts help
@@ -71,7 +89,25 @@ class Projectdbctl < Admiral::Command
       end
     end
 
+    class Delete < Admiral::Command
+      define_flag id : String, description: "resource's id to be deleted.", short: i, long: id, required: true
+      define_flag confirm : String, description: "need to be set to true to delete resources.", long: confirm, required: true
+
+      def run
+        begin
+          api_url = ENV["PROJECTDBCTL_API_URL"]
+          if (flags.confirm == "true")
+            ModResource.delete("environments", api_url, flags.id)
+          end
+        rescue ex
+          puts ex.message
+          exit(1)
+        end
+      end
+    end
+
     register_sub_command(list, List)
+    register_sub_command(delete, Delete)
 
     def run
       puts help
@@ -95,7 +131,25 @@ class Projectdbctl < Admiral::Command
       end
     end
 
+    class Delete < Admiral::Command
+      define_flag id : String, description: "resource's id to be deleted.", short: i, long: id, required: true
+      define_flag confirm : String, description: "need to be set to true to delete resources.", long: confirm, required: true
+
+      def run
+        begin
+          api_url = ENV["PROJECTDBCTL_API_URL"]
+          if (flags.confirm == "true")
+            ModResource.delete("secrets", api_url, flags.id)
+          end
+        rescue ex
+          puts ex.message
+          exit(1)
+        end
+      end
+    end
+
     register_sub_command(list, List)
+    register_sub_command(delete, Delete)
 
     def run
       puts help

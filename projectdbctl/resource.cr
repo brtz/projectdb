@@ -31,6 +31,29 @@ module ModResource
     end
   end
 
+  def self.delete(resource, api_url, id)
+    begin
+      jwt = load_jwt()
+      url = "#{api_url}/#{resource}/#{id}"
+
+      res = Halite.delete(url, headers: {
+        "Accept" => "application/json",
+        "Content-Type" => "application/json",
+        "Authorization" => "Bearer #{jwt}"
+      })
+
+      if res.status_code < 303
+        Common.log("info", "Successfully deleted resource #{resource} with id #{id}")
+      else
+        raise "Could not delete resource #{resource} from #{url} (#{res.status_code})"
+      end
+
+    rescue ex
+      Common.log("error", ex.message, ex)
+      exit(1)
+    end
+  end
+
   private def self.load_jwt() : String
     begin
       jwt = File.read("/tmp/.projectdbctl-jwt")
