@@ -24,6 +24,8 @@ class ApiUsersController < ApplicationController
 
   # POST /apiusers
   def create
+    return head(:forbidden) unless @current_role == "admin"
+
     @apiuser = ApiUser.new(apiuser_params)
 
     if @apiuser.save
@@ -35,6 +37,8 @@ class ApiUsersController < ApplicationController
 
   # PATCH/PUT /apiusers/1
   def update
+    return head(:forbidden) unless @current_role == "admin"
+
     if @apiuser.update(apiuser_params)
       redirect_to api_users_path, notice: "Api User was successfully updated."
     else
@@ -44,6 +48,8 @@ class ApiUsersController < ApplicationController
 
   # DELETE /apiusers/1
   def destroy
+    return head(:forbidden) unless @current_role == "admin"
+
     @apiuser.destroy
     redirect_to api_users_url, notice: "Api User was successfully deleted."
   end

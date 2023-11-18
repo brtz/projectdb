@@ -24,6 +24,8 @@ class EnvironmentsController < ApplicationController
 
   # POST /environments
   def create
+    return head(:forbidden) unless @current_role == "admin"
+
     @environment = Environment.new(environment_params)
 
     if @environment.save
@@ -35,6 +37,8 @@ class EnvironmentsController < ApplicationController
 
   # PATCH/PUT /environments/1
   def update
+    return head(:forbidden) unless @current_role == "admin"
+
     if @environment.update(environment_params)
       redirect_to environments_path, notice: "Environment was successfully updated."
     else
@@ -44,6 +48,8 @@ class EnvironmentsController < ApplicationController
 
   # DELETE /environments/1
   def destroy
+    return head(:forbidden) unless @current_role == "admin"
+
     @environment.destroy
     redirect_to environments_url, notice: "Environment was successfully deleted."
   end
