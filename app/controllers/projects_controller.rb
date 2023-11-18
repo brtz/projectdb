@@ -5,7 +5,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects
   def index
-    @projects = Project.all.page(@page)
+    @projects = Project.all.order("created_at ASC").page(@page)
     respond_to do |format|
       format.html
       format.xml  { render xml: Project.all }

@@ -5,7 +5,7 @@ class ApiUsersController < ApplicationController
 
   # GET /apiusers
   def index
-    @apiusers = ApiUser.all.page(@page)
+    @apiusers = ApiUser.all.order("created_at ASC").page(@page)
     respond_to do |format|
       format.html
       format.xml  { render xml: ApiUser.all }
@@ -36,7 +36,7 @@ class ApiUsersController < ApplicationController
   # PATCH/PUT /apiusers/1
   def update
     if @apiuser.update(apiuser_params)
-      redirect_to apiusers_path, notice: "ApiUser was successfully updated."
+      redirect_to api_users_path, notice: "ApiUser was successfully updated."
     else
       render :edit
     end
@@ -45,17 +45,17 @@ class ApiUsersController < ApplicationController
   # DELETE /apiusers/1
   def destroy
     @apiuser.destroy
-    redirect_to apiusers_url, notice: "ApiUser was successfully deleted."
+    redirect_to api_users_url, notice: "ApiUser was successfully deleted."
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_apiuser
+    def set_api_user
       @apiuser = ApiUser.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
     def apiuser_params
-      params.require(:apiuser).permit(:name, :description, :shorthandle, :project_id)
+      params.require(:api_user).permit(:email, :password)
     end
 end

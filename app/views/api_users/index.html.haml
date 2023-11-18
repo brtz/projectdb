@@ -11,5 +11,9 @@
         %tr
           %td
             = apiuser.email
+          %td
+            .d-flex.justify-content-end
+              = link_to 'Edit', edit_api_user_path(apiuser), class: 'btn btn-sm btn-outline-info mr-2'
+              = link_to 'Delete', api_user_path(apiuser), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-outline-danger'
 .d-flex.justify-content-center.mt-3
   = paginate @apiusers
