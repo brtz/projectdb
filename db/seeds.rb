@@ -11,7 +11,7 @@
 #   end
 
 if ENV["RAILS_ENV"] == "development"
-  User.create(email: "admin@projectdb", password: "narfzort", first_name: "Admin", last_name: "User")
+  User.create(email: "admin@projectdb", password: "narfzort", first_name: "Admin", last_name: "User", current_role: "admin")
   santa = User.create(email: "santa@projectdb", password: "changethis", first_name: "Santa", last_name: "Claus")
   krampus = User.create(email: "krampus@projectdb", password: "changethis", first_name: "Krampus", last_name: "")
 

@@ -3,7 +3,11 @@
 class DeviseCreateUsers < ActiveRecord::Migration[7.1]
   def change
     enable_extension "pgcrypto" unless extension_enabled?("pgcrypto")
+    create_enum :role, ["admin", "user"]
+
     create_table :users, id: :uuid do |t|
+      t.enum :current_role, default: "user", null: false, enum_type: :role
+
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""

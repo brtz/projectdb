@@ -15,6 +15,10 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_14_163252) do
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
 
+  # Custom types defined in this database.
+  # Note that some types may not work with other database engines. Be careful if changing database.
+  create_enum "role", ["admin", "user"]
+
   create_table "api_users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -63,6 +67,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_14_163252) do
   end
 
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.enum "current_role", default: "user", null: false, enum_type: "role"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "first_name", default: "", null: false
