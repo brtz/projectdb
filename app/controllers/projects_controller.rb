@@ -49,8 +49,10 @@ class ProjectsController < ApplicationController
       @project.destroy
       redirect_to projects_url, notice: "Project was successfully deleted."
     else
-      # we redirect with 303 in this case, so the ctl can differentiate between successful 302 and this edge case
-      redirect_to projects_path, status: 303, alert: "Project has child projects. Delete children first."
+      respond_to do |format|
+        format.html { redirect_to projects_path, alert: "Project has child projects. Delete children first." }
+        format.json { redirect_to projects_path, status: 409 }
+      end
     end
   end
 
