@@ -27,7 +27,7 @@ class ApiUsersController < ApplicationController
     @apiuser = ApiUser.new(apiuser_params)
 
     if @apiuser.save
-      redirect_to apiusers_path, notice: "ApiUser was successfully created."
+      redirect_to api_users_path, notice: "Api User was successfully created."
     else
       render :new
     end
@@ -36,7 +36,7 @@ class ApiUsersController < ApplicationController
   # PATCH/PUT /apiusers/1
   def update
     if @apiuser.update(apiuser_params)
-      redirect_to api_users_path, notice: "ApiUser was successfully updated."
+      redirect_to api_users_path, notice: "Api User was successfully updated."
     else
       render :edit
     end
@@ -45,7 +45,7 @@ class ApiUsersController < ApplicationController
   # DELETE /apiusers/1
   def destroy
     @apiuser.destroy
-    redirect_to api_users_url, notice: "ApiUser was successfully deleted."
+    redirect_to api_users_url, notice: "Api User was successfully deleted."
   end
 
   private
