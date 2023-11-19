@@ -39,8 +39,6 @@ class UsersController < ApplicationController
   def update
     return head(:forbidden) unless @current_role == "admin"
 
-    return head(:conflict) if @user.id == @current_user.id
-
     if @user.update(user_params)
       redirect_to users_path, notice: "User was successfully updated."
     else

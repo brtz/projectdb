@@ -48,6 +48,11 @@ class SecretsController < ApplicationController
     redirect_to secrets_url, notice: "Secret was successfully deleted."
   end
 
+  # GET /secrets/spec
+  def spec
+    render json: Secret.new
+  end
+
     private
       # Use callbacks to share common setup or constraints between actions.
       def set_secret
