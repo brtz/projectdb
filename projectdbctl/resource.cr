@@ -48,8 +48,7 @@ module ModResource
         spec.as_h.delete("created_at")
         spec.as_h.delete("updated_at")
 
-        File.write("/tmp/projectdbctl-spec-#{resource}", spec.to_pretty_json)
-        puts "Wrote spec for #{resource} to: /tmp/projectdbctl-spec-#{resource}"
+        puts spec.to_json
       else
         raise "Could not spec resource #{resource} from #{url} (#{res.status_code})"
       end

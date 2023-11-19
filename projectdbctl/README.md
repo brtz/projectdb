@@ -45,7 +45,7 @@ If you get an error with status code 409, this means you tried to delete a resou
 
 ### get the spec for a resource (e.g. project)
 ```bash
-PROJECTDBCTL_API_URL=http://localhost:3000 ./bin/projectdbctl project spec
+PROJECTDBCTL_API_URL=http://localhost:3000 ./bin/projectdbctl project spec | jq > /tmp/projectdb-spec-projects
 ```
 This can be used as a template for resource creation.
 
