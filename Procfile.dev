@@ -1,4 +1,4 @@
-web: bin/rails server -p 3000 -b 0.0.0.0
+web: RUBYOPT="--yjit" bin/rails server -p 3000 -b 0.0.0.0
+#web: bin/rails server -p 3000 -b 0.0.0.0
 redis: podman-compose up redis
 postgres: podman-compose up db
-#prepare: sleep 5 && bin/rails db:prepare && sleep 3600

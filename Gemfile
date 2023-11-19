@@ -70,6 +70,7 @@ group :test do
   gem "selenium-webdriver"
 end
 
+gem "async"
 gem "bootstrap", "~> 4.3.1"
 gem "brakeman"
 gem "bundler-audit"

@@ -42,5 +42,8 @@ module Projectdb
     config.sass.preferred_syntax = :scss
     config.sass.line_comments = false
     config.sass.cache = false
+
+    # use async gem
+    config.active_support.isolation_level = :fiber
   end
 end
