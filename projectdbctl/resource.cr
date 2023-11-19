@@ -31,6 +31,35 @@ module ModResource
     end
   end
 
+  def self.spec(resource, api_url)
+    begin
+      jwt = load_jwt()
+      url = "#{api_url}/#{resource}/spec"
+
+      res = Halite.get(url, headers: {
+        "Accept" => "application/json",
+        "Content-Type" => "application/json",
+        "Authorization" => "Bearer #{jwt}"
+      })
+
+      if res.status_code == 200
+        spec = JSON.parse(res.body)
+        spec.as_h.delete("id")
+        spec.as_h.delete("created_at")
+        spec.as_h.delete("updated_at")
+
+        File.write("/tmp/projectdbctl-spec-#{resource}", spec.to_pretty_json)
+        puts "Wrote spec for #{resource} to: /tmp/projectdbctl-spec-#{resource}"
+      else
+        raise "Could not spec resource #{resource} from #{url} (#{res.status_code})"
+      end
+
+    rescue ex
+      Common.log("error", ex.message, ex)
+      exit(1)
+    end
+  end
+
   def self.delete(resource, api_url, id)
     begin
       jwt = load_jwt()

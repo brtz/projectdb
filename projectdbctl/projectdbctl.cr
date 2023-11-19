@@ -47,6 +47,18 @@ class Projectdbctl < Admiral::Command
       end
     end
 
+    class Spec < Admiral::Command
+      def run
+        begin
+          api_url = ENV["PROJECTDBCTL_API_URL"]
+          ModResource.spec("projects", api_url)
+        rescue ex
+          puts ex.message
+          exit(1)
+        end
+      end
+    end
+
     class Delete < Admiral::Command
       define_flag id : String, description: "resource's id to be deleted.", short: i, long: id, required: true
       define_flag confirm : String, description: "need to be set to true to delete resources.", long: confirm, required: true
@@ -65,6 +77,7 @@ class Projectdbctl < Admiral::Command
     end
 
     register_sub_command(list, List)
+    register_sub_command(spec, Spec)
     register_sub_command(delete, Delete)
 
     def run
@@ -82,6 +95,18 @@ class Projectdbctl < Admiral::Command
         begin
           api_url = ENV["PROJECTDBCTL_API_URL"]
           ModResource.list("environments", api_url, flags.filters)
+        rescue ex
+          puts ex.message
+          exit(1)
+        end
+      end
+    end
+
+    class Spec < Admiral::Command
+      def run
+        begin
+          api_url = ENV["PROJECTDBCTL_API_URL"]
+          ModResource.spec("environments", api_url)
         rescue ex
           puts ex.message
           exit(1)
@@ -107,6 +132,7 @@ class Projectdbctl < Admiral::Command
     end
 
     register_sub_command(list, List)
+    register_sub_command(spec, Spec)
     register_sub_command(delete, Delete)
 
     def run
@@ -124,6 +150,18 @@ class Projectdbctl < Admiral::Command
         begin
           api_url = ENV["PROJECTDBCTL_API_URL"]
           ModResource.list("secrets", api_url, flags.filters)
+        rescue ex
+          puts ex.message
+          exit(1)
+        end
+      end
+    end
+
+    class Spec < Admiral::Command
+      def run
+        begin
+          api_url = ENV["PROJECTDBCTL_API_URL"]
+          ModResource.spec("secrets", api_url)
         rescue ex
           puts ex.message
           exit(1)
@@ -149,6 +187,7 @@ class Projectdbctl < Admiral::Command
     end
 
     register_sub_command(list, List)
+    register_sub_command(spec, Spec)
     register_sub_command(delete, Delete)
 
     def run
