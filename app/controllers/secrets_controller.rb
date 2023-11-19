@@ -72,6 +72,6 @@ class SecretsController < ApplicationController
 
       # Only allow a trusted parameter "white list" through.
       def secret_params
-        params.require(:secret).permit(:name, :content, :environment_id)
+        params.require(:secret).permit(:page, :name, :content, :environment_id)
       end
 end

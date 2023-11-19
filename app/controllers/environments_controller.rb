@@ -78,6 +78,6 @@ class EnvironmentsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def environment_params
-      params.require(:environment).permit(:name, :description, :shorthandle, :project_id)
+      params.require(:environment).permit(:page, :name, :description, :shorthandle, :project_id)
     end
 end

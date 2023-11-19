@@ -26,4 +26,12 @@ if ENV["RAILS_ENV"] == "development"
 
   Secret.create(name: "naughties", content: "Peer, Piep", environment: third_environment)
   Secret.create(name: "behaved", content: "Nils", environment: third_environment)
+
+  for i in 1..2000 do
+    puts "at #{i} / 2000" if i % 100 == 0
+
+    project = Project.create(name: "Project #{i}", shorthandle: "p#{i}", description: "#{i}", user: santa, custom_id: 1000 + i)
+    environment = Environment.create(name: "Environment #{i}", shorthandle: "e#{i}", project_id: project.id)
+    Secret.create(name: "Secret #{i}", content: "#{i}", environment_id: environment.id)
+  end
 end

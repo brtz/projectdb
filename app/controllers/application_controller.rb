@@ -5,11 +5,16 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_api_user!, if: -> { request.format.json? }
   before_action :authenticate_user!, if: -> { request.format.html? }
   before_action :define_role
+  before_action :define_page
 
   def index
   end
 
   private
+    def define_page
+      @page = params[:page] unless params[:page].nil?
+    end
+
     def define_role
       if !current_api_user.nil?
         @current_role = "admin"
