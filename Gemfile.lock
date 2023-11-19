@@ -215,6 +215,7 @@ GEM
       racc
     pg (1.5.4)
     popper_js (1.16.1)
+    prometheus-client (4.2.2)
     psych (5.1.1.1)
       stringio
     public_suffix (5.0.3)
@@ -394,6 +395,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   pg
+  prometheus-client
   puma (>= 5.0)
   rails (~> 7.1.2)
   redis (>= 4.0.1)
