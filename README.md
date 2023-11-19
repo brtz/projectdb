@@ -30,9 +30,6 @@ Api Users automatically receive the role "admin".
 ## projectdbctl
 
 # TODO
-- projectdbcli resource spec --id
-- projectdbcli resource add --file
-- projectdbcli resource update --file --id
 - update docs with screenshot and logo
 - dashboard
 - resource milestones

@@ -41,9 +41,15 @@ class ProjectsController < ApplicationController
   # PATCH/PUT /projects/1
   def update
     if @project.update(project_params)
-      redirect_to projects_path, notice: "Project was successfully updated."
+      respond_to do |format|
+        format.html { redirect_to projects_path, notice: "Project was successfully updated." }
+        format.json { render json: @project }
+      end
     else
-      render :edit
+      respond_to do |format|
+        format.html { render :edit }
+        format.json { head(:bad_request) }
+      end
     end
   end
 

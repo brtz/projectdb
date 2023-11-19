@@ -45,9 +45,15 @@ class EnvironmentsController < ApplicationController
     return head(:forbidden) unless @current_role == "admin"
 
     if @environment.update(environment_params)
-      redirect_to environments_path, notice: "Environment was successfully updated."
+      respond_to do |format|
+        format.html { redirect_to environments_path, notice: "Environment was successfully updated." }
+        format.json { render json: @environment }
+      end
     else
-      render :edit
+      respond_to do |format|
+        format.html { render :edit }
+        format.json { head(:bad_request) }
+      end
     end
   end
 

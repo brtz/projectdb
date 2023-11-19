@@ -41,9 +41,15 @@ class SecretsController < ApplicationController
   # PATCH/PUT /secrets/1
   def update
     if @secret.update(secret_params)
-      redirect_to secrets_path, notice: "Secret was successfully updated."
+      respond_to do |format|
+        format.html { redirect_to secrets_path, notice: "Secret was successfully updated." }
+        format.json { render json: @secret }
+      end
     else
-      render :edit
+      respond_to do |format|
+        format.html { render :edit }
+        format.json { head(:bad_request) }
+      end
     end
   end
 
