@@ -7,6 +7,7 @@
   %table.table.table-striped.table-hover
     %thead
       %tr
+        %th Id
         %th Email
         %th First name
         %th Last name
@@ -14,6 +15,8 @@
     %tbody
       - @users.each do |user|
         %tr
+          %td
+            = user.id
           %td
             = user.email
           %td

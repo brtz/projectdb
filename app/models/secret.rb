@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 class Secret < ApplicationRecord
-  encrypts :name
+  validates :name, uniqueness: true
+
+  encrypts :name, deterministic: true, downcase: true
   encrypts :content
 
   belongs_to :environment

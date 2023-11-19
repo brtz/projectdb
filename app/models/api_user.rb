@@ -12,4 +12,6 @@ class ApiUser < ApplicationRecord
       "email" => email
     }
   end
+
+  encrypts :description
 end

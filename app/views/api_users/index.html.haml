@@ -7,10 +7,13 @@
   %table.table.table-striped.table-hover
     %thead
       %tr
+        %th Id
         %th Email
     %tbody
       - @apiusers.each do |apiuser|
         %tr
+          %td
+            = apiuser.id
           %td
             = apiuser.email
           %td
