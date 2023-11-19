@@ -8,7 +8,6 @@ class ProjectsController < ApplicationController
     @projects = Project.all.order("created_at ASC").page(@page)
     respond_to do |format|
       format.html
-      format.xml  { render xml: Project.all }
       format.json { render json: Project.all }
     end
   end
@@ -29,11 +28,13 @@ class ProjectsController < ApplicationController
     if @project.save
       respond_to do |format|
         format.html { redirect_to projects_path, notice: "Project was successfully created." }
-        format.xml  { render xml: @project }
         format.json { render json: @project }
       end
     else
-      render :new
+      respond_to do |format|
+        format.html { render :new }
+        format.json { head(:bad_request) }
+      end
     end
   end
 

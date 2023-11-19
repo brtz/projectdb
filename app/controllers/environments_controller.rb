@@ -8,7 +8,6 @@ class EnvironmentsController < ApplicationController
     @environments = Environment.all.order("created_at ASC").page(@page)
     respond_to do |format|
       format.html
-      format.xml  { render xml: Environment.all }
       format.json { render json: Environment.all }
     end
   end
@@ -31,11 +30,13 @@ class EnvironmentsController < ApplicationController
     if @environment.save
       respond_to do |format|
         format.html { redirect_to environments_path, notice: "Environment was successfully created." }
-        format.xml  { render xml: @environment }
         format.json { render json: @environment }
       end
     else
-      render :new
+      respond_to do |format|
+        format.html { render :new }
+        format.json { head(:bad_request) }
+      end
     end
   end
 

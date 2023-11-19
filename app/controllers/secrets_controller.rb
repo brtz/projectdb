@@ -29,11 +29,13 @@ class SecretsController < ApplicationController
     if @secret.save
       respond_to do |format|
         format.html { redirect_to secrets_path, notice: "Secret was successfully created." }
-        format.xml  { render xml: @secret }
         format.json { render json: @secret }
       end
     else
-      render :new
+      respond_to do |format|
+        format.html { render :new }
+        format.json { head(:bad_request) }
+      end
     end
   end
 
