@@ -31,6 +31,10 @@ jobs:
     env:
       RAILS_ENV: test
       DATABASE_URL: "postgres://rails:password@localhost:5432/rails_test"
+      ACTIVE_RECORD_ENCRYPTION_PRIMARY_KEY: "12TCgAcuIS123sHdLR9z11raOe7sSzRZwTh"
+      ACTIVE_RECORD_ENCRYPTION_DETERMINISTIC_KEY: "zrj21497x7RV4AAYB2EMWw0GiDSD9I2a3QFfj"
+      ACTIVE_RECORD_ENCRYPTION_KEY_DERIVATION_SALT: "awpdafubttSA2InvhhRia3EepLEuasdhbpa213"
+
     steps:
       - name: ruby_build_checkout
         uses: actions/checkout@v3
