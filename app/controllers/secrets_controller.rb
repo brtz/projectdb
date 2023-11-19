@@ -8,7 +8,6 @@ class SecretsController < ApplicationController
     @secrets = Secret.all.order("created_at ASC").page(@page)
     respond_to do |format|
       format.html
-      format.xml  { render xml: Secret.all }
       format.json { render json: Secret.all }
     end
   end

@@ -8,7 +8,6 @@ class UsersController < ApplicationController
     @users = User.all.order("created_at ASC").page(@page)
     respond_to do |format|
       format.html
-      format.xml  { render xml: User.all }
       format.json { render json: User.all }
     end
   end

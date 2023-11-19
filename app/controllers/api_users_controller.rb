@@ -8,7 +8,6 @@ class ApiUsersController < ApplicationController
     @apiusers = ApiUser.all.order("created_at ASC").page(@page)
     respond_to do |format|
       format.html
-      format.xml  { render xml: ApiUser.all }
       format.json { render json: ApiUser.all }
     end
   end
