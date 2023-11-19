@@ -60,6 +60,32 @@ module ModResource
     end
   end
 
+  def self.create(resource, api_url, file)
+    begin
+      jwt = load_jwt()
+      url = "#{api_url}/#{resource}"
+
+      # parse needed, so we format it right removing newlines etc.
+      content = JSON.parse(File.read(file)).to_json
+
+      res = Halite.post(url, headers: {
+        "Accept" => "application/json",
+        "Content-Type" => "application/json",
+        "Authorization" => "Bearer #{jwt}"
+      }, raw: %Q{{"#{resource.chomp("s")}": #{content}}})
+
+      if res.status_code == 200
+        puts res.body
+      else
+        raise "Could not create resource #{resource} at #{url} (#{res.status_code})"
+      end
+
+    rescue ex
+      Common.log("error", ex.message, ex)
+      exit(1)
+    end
+  end
+
   def self.delete(resource, api_url, id)
     begin
       jwt = load_jwt()

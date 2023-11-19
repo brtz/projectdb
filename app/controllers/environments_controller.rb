@@ -29,7 +29,11 @@ class EnvironmentsController < ApplicationController
     @environment = Environment.new(environment_params)
 
     if @environment.save
-      redirect_to environments_path, notice: "Environment was successfully created."
+      respond_to do |format|
+        format.html { redirect_to environments_path, notice: "Environment was successfully created." }
+        format.xml  { render xml: @environment }
+        format.json { render json: @environment }
+      end
     else
       render :new
     end

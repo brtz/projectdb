@@ -59,6 +59,20 @@ class Projectdbctl < Admiral::Command
       end
     end
 
+    class Add < Admiral::Command
+      define_flag file : String, description: "path to resource file.", short: f, long: file, required: true
+
+      def run
+        begin
+          api_url = ENV["PROJECTDBCTL_API_URL"]
+          ModResource.create("projects", api_url, flags.file)
+        rescue ex
+          puts ex.message
+          exit(1)
+        end
+      end
+    end
+
     class Delete < Admiral::Command
       define_flag id : String, description: "resource's id to be deleted.", short: i, long: id, required: true
       define_flag confirm : String, description: "need to be set to true to delete resources.", long: confirm, required: true
@@ -78,6 +92,7 @@ class Projectdbctl < Admiral::Command
 
     register_sub_command(list, List)
     register_sub_command(spec, Spec)
+    register_sub_command(add, Add)
     register_sub_command(delete, Delete)
 
     def run
@@ -114,6 +129,20 @@ class Projectdbctl < Admiral::Command
       end
     end
 
+    class Add < Admiral::Command
+      define_flag file : String, description: "path to resource file.", short: f, long: file, required: true
+
+      def run
+        begin
+          api_url = ENV["PROJECTDBCTL_API_URL"]
+          ModResource.create("environments", api_url, flags.file)
+        rescue ex
+          puts ex.message
+          exit(1)
+        end
+      end
+    end
+
     class Delete < Admiral::Command
       define_flag id : String, description: "resource's id to be deleted.", short: i, long: id, required: true
       define_flag confirm : String, description: "need to be set to true to delete resources.", long: confirm, required: true
@@ -133,6 +162,7 @@ class Projectdbctl < Admiral::Command
 
     register_sub_command(list, List)
     register_sub_command(spec, Spec)
+    register_sub_command(add, Add)
     register_sub_command(delete, Delete)
 
     def run
@@ -169,6 +199,20 @@ class Projectdbctl < Admiral::Command
       end
     end
 
+    class Add < Admiral::Command
+      define_flag file : String, description: "path to resource file.", short: f, long: file, required: true
+
+      def run
+        begin
+          api_url = ENV["PROJECTDBCTL_API_URL"]
+          ModResource.create("secrets", api_url, flags.file)
+        rescue ex
+          puts ex.message
+          exit(1)
+        end
+      end
+    end
+
     class Delete < Admiral::Command
       define_flag id : String, description: "resource's id to be deleted.", short: i, long: id, required: true
       define_flag confirm : String, description: "need to be set to true to delete resources.", long: confirm, required: true
@@ -188,6 +232,7 @@ class Projectdbctl < Admiral::Command
 
     register_sub_command(list, List)
     register_sub_command(spec, Spec)
+    register_sub_command(add, Add)
     register_sub_command(delete, Delete)
 
     def run

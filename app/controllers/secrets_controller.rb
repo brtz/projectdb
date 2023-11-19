@@ -27,7 +27,11 @@ class SecretsController < ApplicationController
     @secret = Secret.new(secret_params)
 
     if @secret.save
-      redirect_to secrets_path, notice: "Secret was successfully created."
+      respond_to do |format|
+        format.html { redirect_to secrets_path, notice: "Secret was successfully created." }
+        format.xml  { render xml: @secret }
+        format.json { render json: @secret }
+      end
     else
       render :new
     end

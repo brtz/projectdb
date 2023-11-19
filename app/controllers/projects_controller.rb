@@ -27,7 +27,11 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
 
     if @project.save
-      redirect_to projects_path, notice: "Project was successfully created."
+      respond_to do |format|
+        format.html { redirect_to projects_path, notice: "Project was successfully created." }
+        format.xml  { render xml: @project }
+        format.json { render json: @project }
+      end
     else
       render :new
     end
