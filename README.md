@@ -20,7 +20,7 @@ The core concepts are:
 ## Images
 We provide container images at:
 
-- projectdb: https://hub.docker.com/r/brtz/projectdb.
+- projectdb: https://hub.docker.com/r/brtz/projectdb
 - projectdbctl: https://hub.docker.com/r/brtz/projectdbctl
 
 Please check the tags. Versioning is not done by doing semver, but in a rolling release style with the tag's datetime.
