@@ -23,7 +23,7 @@ jobs:
       image: crystallang/crystal:1-alpine
     steps:
       - name: crystal_build_checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: crystal_build_build
         working-directory: ./projectdbctl
         run: shards build --verbose --production --release --static --no-debug
