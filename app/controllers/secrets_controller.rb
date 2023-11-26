@@ -5,7 +5,7 @@ class SecretsController < ApplicationController
 
   # GET /secrets
   def index
-    @secrets = Secret.all.order("created_at ASC").page(@page)
+    @secrets = Secret.includes(:environment).all.order("created_at ASC").page(@page)
     respond_to do |format|
       format.html
       format.json { render json: Secret.all }

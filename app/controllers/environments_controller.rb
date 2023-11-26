@@ -5,7 +5,7 @@ class EnvironmentsController < ApplicationController
 
   # GET /environments
   def index
-    @environments = Environment.all.order("created_at ASC").page(@page)
+    @environments = Environment.includes(:project).all.order("created_at ASC").page(@page)
     respond_to do |format|
       format.html
       format.json { render json: Environment.all }

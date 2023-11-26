@@ -5,7 +5,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects
   def index
-    @projects = Project.all.order("created_at ASC").page(@page)
+    @projects = Project.includes(:user).all.order("created_at ASC").page(@page)
     respond_to do |format|
       format.html
       format.json { render json: Project.all }
