@@ -1,4 +1,6 @@
-web: RUBYOPT="--yjit" bin/rails server -p 3000 -b 0.0.0.0
-#web: bin/rails server -p 3000 -b 0.0.0.0
-redis: podman-compose up redis
 postgres: podman-compose up db
+redis: podman-compose up redis
+web: sleep 5 && rm db/schema.rb ; RUBYOPT="--yjit" bin/docker-entrypoint ./bin/rails server -p 3000 -b 0.0.0.0
+#tail: tail -f log/development.log
+#grafana: podman-compose up grafana
+#loki: podman-compose up loki
