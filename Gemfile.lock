@@ -78,10 +78,10 @@ GEM
     addressable (2.8.6)
       public_suffix (>= 2.0.2, < 6.0)
     ast (2.4.2)
-    async (2.8.1)
-      console (~> 1.10)
+    async (2.11.0)
+      console (~> 1.25, >= 1.25.2)
       fiber-annotation
-      io-event (~> 1.1)
+      io-event (~> 1.5, >= 1.5.1)
       timers (~> 4.1)
     autoprefixer-rails (10.4.16.0)
       execjs (~> 2)
@@ -112,9 +112,10 @@ GEM
       xpath (~> 3.2)
     concurrent-ruby (1.2.3)
     connection_pool (2.4.1)
-    console (1.23.3)
+    console (1.25.2)
       fiber-annotation
-      fiber-local
+      fiber-local (~> 1.1)
+      json
     crass (1.0.6)
     date (3.3.4)
     debug (1.9.1)
@@ -147,7 +148,9 @@ GEM
     execjs (2.9.1)
     ffi (1.16.3)
     fiber-annotation (0.2.0)
-    fiber-local (1.0.0)
+    fiber-local (1.1.0)
+      fiber-storage
+    fiber-storage (0.1.0)
     foreman (0.87.2)
     globalid (1.2.1)
       activesupport (>= 6.1)
@@ -167,7 +170,7 @@ GEM
       activesupport (>= 6.0.0)
       railties (>= 6.0.0)
     io-console (0.7.2)
-    io-event (1.4.3)
+    io-event (1.5.1)
     irb (1.12.0)
       rdoc
       reline (>= 0.4.2)
