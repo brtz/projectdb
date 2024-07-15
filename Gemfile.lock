@@ -126,9 +126,9 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
-    devise-jwt (0.11.0)
+    devise-jwt (0.12.1)
       devise (~> 4.0)
-      warden-jwt_auth (~> 0.8)
+      warden-jwt_auth (~> 0.10)
     dotenv (3.1.2)
     dotenv-rails (3.1.2)
       dotenv (= 3.1.2)
@@ -137,7 +137,7 @@ GEM
     dry-auto_inject (1.0.1)
       dry-core (~> 1.0)
       zeitwerk (~> 2.6)
-    dry-configurable (1.1.0)
+    dry-configurable (1.2.0)
       dry-core (~> 1.0, < 2)
       zeitwerk (~> 2.6)
     dry-core (1.0.1)
@@ -152,7 +152,6 @@ GEM
     ffi (1.17.0-arm64-darwin)
     ffi (1.17.0-x86-linux-gnu)
     ffi (1.17.0-x86-linux-musl)
-    ffi (1.17.0-x86_64-darwin)
     ffi (1.17.0-x86_64-linux-gnu)
     ffi (1.17.0-x86_64-linux-musl)
     fiber-annotation (0.2.0)
@@ -179,7 +178,7 @@ GEM
       railties (>= 6.0.0)
     io-console (0.7.2)
     io-event (1.6.5)
-    irb (1.13.2)
+    irb (1.14.0)
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
     jbuilder (2.12.0)
@@ -238,8 +237,6 @@ GEM
       racc (~> 1.4)
     nokogiri (1.16.6-x86-linux)
       racc (~> 1.4)
-    nokogiri (1.16.6-x86_64-darwin)
-      racc (~> 1.4)
     nokogiri (1.16.6-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
@@ -257,7 +254,7 @@ GEM
     puma (6.4.2)
       nio4r (~> 2.0)
     racc (1.8.0)
-    rack (3.1.4)
+    rack (3.1.7)
     rack-session (2.0.0)
       rack (>= 3.0.0)
     rack-test (2.1.0)
@@ -394,7 +391,7 @@ GEM
     unicode-display_width (2.5.0)
     warden (1.2.9)
       rack (>= 2.0.9)
-    warden-jwt_auth (0.9.0)
+    warden-jwt_auth (0.10.0)
       dry-auto_inject (>= 0.8, < 2)
       dry-configurable (>= 0.13, < 2)
       jwt (~> 2.1)
@@ -424,7 +421,7 @@ PLATFORMS
   x86-linux
   x86-linux-gnu
   x86-linux-musl
-  x86_64-darwin
+  x86_64-linux
   x86_64-linux-gnu
   x86_64-linux-musl
 
